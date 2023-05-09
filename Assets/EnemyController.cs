@@ -50,6 +50,12 @@ public class EnemyController : MonoBehaviour
             {
                 timer -= Time.deltaTime;
             }
+
+
+
+
+            if(Input.GetKeyDown(KeyCode.Space) && Vector3.Distance(transform.position, player.transform.position) < 8 && Vector3.Dot(transform.TransformDirection(Vector3.forward), Vector3.Normalize(player.transform.position - transform.position)) < 0)
+            Destroy(gameObject);
         }
         else
         {
