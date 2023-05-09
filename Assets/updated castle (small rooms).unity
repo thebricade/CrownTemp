@@ -3642,7 +3642,7 @@ CharacterController:
   m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 1
+  m_StepOffset: 3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
@@ -3734,7 +3734,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241823746}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 826.2}
+  m_LocalPosition: {x: 19.63, y: -8.03, z: 868}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19519,7 +19519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8929012494578684342, guid: 9ddf3bab121588c478ffbad978c32aec, type: 3}
       propertyPath: pathPoints.Array.data[0].y
-      value: -2.7
+      value: -8.38
       objectReference: {fileID: 0}
     - target: {fileID: 8929012494578684342, guid: 9ddf3bab121588c478ffbad978c32aec, type: 3}
       propertyPath: pathPoints.Array.data[0].z
@@ -19531,7 +19531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8929012494578684342, guid: 9ddf3bab121588c478ffbad978c32aec, type: 3}
       propertyPath: pathPoints.Array.data[1].y
-      value: -2.7
+      value: -8.38
       objectReference: {fileID: 0}
     - target: {fileID: 8929012494578684342, guid: 9ddf3bab121588c478ffbad978c32aec, type: 3}
       propertyPath: pathPoints.Array.data[1].z
