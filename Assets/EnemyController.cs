@@ -65,11 +65,11 @@ public class EnemyController : MonoBehaviour
             Vector3 direction = player.transform.position - transform.position;
             float angle = Vector3.Angle(direction, transform.forward);
             RaycastHit hit;
-            Debug.DrawLine(transform.position + transform.up * 0.1f, player.transform.position, Color.red, 0);
-            if (Physics.Raycast(transform.position + transform.up * 0.1f, direction.normalized, out hit, col.radius))
+            Debug.DrawRay(transform.position + transform.up * 0.3f, direction.normalized * col.radius * 4, Color.red, 0);
+            if (Physics.Raycast(transform.position + transform.up * 0.3f, direction.normalized, out hit, col.radius * 4))
             {
-
-                if (hit.collider.gameObject != player || Vector3.Distance(transform.position, player.transform.position) > col.radius * 1.2)
+                Debug.Log(hit.collider.gameObject);
+                if (hit.collider.gameObject != player || Vector3.Distance(transform.position, player.transform.position) > col.radius * 5)
                 {
                     timer -= Time.deltaTime;
                     if (timer <= 0)
@@ -90,19 +90,23 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+
         if (other.gameObject == player)
+            Debug.Log("PIM");
         {
             Vector3 direction = other.transform.position - transform.position;
             float angle = Vector3.Angle(direction, transform.forward);
             RaycastHit hit;
             if (!chasing)
             {
-                Debug.DrawLine(transform.position + transform.up * 0.1f, player.transform.position, Color.green, 0);
+                Debug.DrawRay(transform.position + transform.up * 0.3f, direction.normalized * col.radius * 4, Color.green, 1);
+                Debug.Log("DRAW");
             }
             if (angle < FOV * 0.5)
             {
-                if (Physics.Raycast(transform.position + transform.up * 0.1f, direction.normalized, out hit, col.radius))
+                if (Physics.Raycast(transform.position + transform.up * 0.3f, direction.normalized, out hit, col.radius * 4))
                 {
+                    Debug.Log(hit.collider.gameObject);
                     if (hit.collider.gameObject == player)
                     {
                         chasing = true;
