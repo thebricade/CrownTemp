@@ -19507,7 +19507,7 @@ PrefabInstance:
       objectReference: {fileID: 241823746}
     - target: {fileID: 8929012494578684342, guid: 9ddf3bab121588c478ffbad978c32aec, type: 3}
       propertyPath: waitTime
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8929012494578684342, guid: 9ddf3bab121588c478ffbad978c32aec, type: 3}
       propertyPath: pathPoints.Array.size
