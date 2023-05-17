@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour
 {
@@ -66,10 +65,11 @@ public class EnemyController : MonoBehaviour
             Vector3 direction = player.transform.position - transform.position;
             float angle = Vector3.Angle(direction, transform.forward);
             RaycastHit hit;
-            Debug.DrawRay(transform.position + transform.up * 0.3f, direction.normalized * col.radius * 4, Color.red, 0);
-            if (Physics.Raycast(transform.position + transform.up * 0.3f, direction.normalized, out hit, col.radius * 4))
+            Debug.DrawLine(transform.position + transform.up * 0.1f, player.transform.position, Color.red, 0);
+            if (Physics.Raycast(transform.position + transform.up * 0.1f, direction.normalized, out hit, col.radius))
             {
-                if (hit.collider.gameObject != player || Vector3.Distance(transform.position, player.transform.position) > col.radius * 5)
+
+                if (hit.collider.gameObject != player || Vector3.Distance(transform.position, player.transform.position) > col.radius * 1.2)
                 {
                     timer -= Time.deltaTime;
                     if (timer <= 0)
@@ -84,17 +84,12 @@ public class EnemyController : MonoBehaviour
                     timer = 1f;
                 }
             }
-            if (Vector3.Distance(transform.position, player.transform.position) < 5) {
-                Debug.Log("AH");
-                SceneManager.LoadScene("george's updated rooms");
-            }
         }
 
     }
 
     private void OnTriggerStay(Collider other)
     {
-
         if (other.gameObject == player)
         {
             Vector3 direction = other.transform.position - transform.position;
@@ -102,11 +97,11 @@ public class EnemyController : MonoBehaviour
             RaycastHit hit;
             if (!chasing)
             {
-                Debug.DrawRay(transform.position + transform.up * 0.3f, direction.normalized * col.radius * 4, Color.green, 1);
+                Debug.DrawLine(transform.position + transform.up * 0.1f, player.transform.position, Color.green, 0);
             }
             if (angle < FOV * 0.5)
             {
-                if (Physics.Raycast(transform.position + transform.up * 0.3f, direction.normalized, out hit, col.radius * 4))
+                if (Physics.Raycast(transform.position + transform.up * 0.1f, direction.normalized, out hit, col.radius))
                 {
                     if (hit.collider.gameObject == player)
                     {
@@ -117,5 +112,4 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
-
 }

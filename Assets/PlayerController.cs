@@ -21,12 +21,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float _gravityValue = -9.81f;
 
-    public Vector3 startpos;
-
     private void Start()
     {
         _controller = GetComponent<CharacterController>();
-        startpos = new Vector3(0, 0, 0);
     }
 
     private void Update()
@@ -62,7 +59,4 @@ public class PlayerController : MonoBehaviour
         _playerVelocity.y += _gravityValue * Time.deltaTime;
         _controller.Move(_playerVelocity * Time.deltaTime);
     }
-
 }
-
-    
